@@ -1,4 +1,4 @@
-Ontario Bridges
+# Ontario Bridges
 
 The Government of Ontario collects [a huge amount of data](https://data.ontario.ca/) on provincial programs and infrastructure, and much of it is provided as open data sets for public use. This project works with a particular dataset that contains information about provincially owned and maintained bridges in Ontario. All bridges in Ontario are reviewed every 2 years, and their information is collected to help determine when bridges need inspection and maintenance. The data contains information about all bridges in the Ontario highway network, such as the length of the bridges, their condition over various years, and historical information.
 
@@ -15,18 +15,19 @@ We can see that the first bridge is described on row 3. From row 3, column B, we
 
 
 
-Inspecting Bridges
+## Inspecting Bridges
+
 Ontario sends inspectors to check the condition of a bridge. The dataset contains a column (LAST INSPECTION DATE) showing the last date a bridge was inspected. When a bridge is inspected, it receives a score based on its condition. This score is called the Bridge Condition Index (BCI). The BCI is a number between 0 and 100, inclusive. You can see the most recent score in the dataset (CURRENT BCI), as well as past scores (the columns with years ranging from 2013 to 2000).
 
 
 
-Fixing Bridges
+## Fixing Bridges
 
 If a bridge is in poor condition, it can be fixed (i.e., “rehabilitated”). These can be major or minor fixes. The dataset includes the year the last major (LAST MAJOR REHAB) or minor (LAST MINOR REHAB) rehabilitation was performed on the bridge.
 
 
 
-Bridge Spans
+## Bridge Spans
 
 A bridge is made up of one or more spans (# OF SPANS). A span “is the distance between two intermediate supports for a structure, e.g. a beam or a bridge. A span can be closed by a solid beam or by a rope” (Source: Wikipedia). Each span has a length associated with it (SPAN DETAILS). For example, if a bridge has two spans, the SPAN DETAILS data follows the following format:
 
@@ -42,7 +43,7 @@ Each span length has a prefix of the form (x)= where x is a number starting from
 
 
 
-Ontario Bridges in Python
+## Ontario Bridges in Python
 
 The dataset is in form of a list of lists in Python (i.e., List[list]). The outer list has the same length as the number of bridges in the dataset. Each inner list (i.e., list) corresponds to one row (i.e., bridge) of the dataset. For example, here is what the first bridge of our dataset will look like in our Python program:
 
@@ -87,7 +88,7 @@ The following table shows how the dataset file and Python data are related throu
 
 
 
-
+<img width="805" alt="Screen Shot 2022-09-02 at 06 41 24" src="https://user-images.githubusercontent.com/94993837/188122815-8deb52b8-a645-4606-9ead-cf4b35bb8bde.png">
 
 
 
@@ -95,7 +96,7 @@ Note that the COLUMN_ID in our inner list is an integer, which is very different
 
 
 
-Storing BCI Scores
+## Storing BCI Scores
 
 The inner list does not contain the CURRENT BCI column from the dataset (instead, you will implement a function to find the most recent BCI score). Moreover, the remaining columns in the dataset that contain BCI scores are stored in another list (at index COLUMN_BCI) with type List[list]. This list contains exactly two lists:
 
@@ -117,7 +118,7 @@ From the example above, we can see that first_bridge has no BCI score in the yea
 
 
 
-Locations and Calculating Distance
+## Locations and Calculating Distance
 
 The bridges have their locations represented as a latitude and longitude, which we typically refer to as (lat, lon) for short. If you are curious, you can always search for a specific location online (e.g., with Google Maps):
 
