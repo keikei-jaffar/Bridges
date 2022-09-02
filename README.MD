@@ -7,17 +7,24 @@ The datasets in starter files: bridge_data_small.csv and bridge_data_large.csv. 
 Here is a screenshot of the data opened in Microsoft Excel (your computer may have a different spreadsheet program installed):
 
 
+![excel-bridge-data](https://user-images.githubusercontent.com/94993837/188121737-5b83cf82-f65c-4232-8c3e-b47bc41438eb.png)
 
 
 
 We can see that the first bridge is described on row 3. From row 3, column B, we can see that the bridge is named: Highway 24 Underpass at Highway 403. Subsequent columns include even more information about the bridge.
 
+
+
 Inspecting Bridges
 Ontario sends inspectors to check the condition of a bridge. The dataset contains a column (LAST INSPECTION DATE) showing the last date a bridge was inspected. When a bridge is inspected, it receives a score based on its condition. This score is called the Bridge Condition Index (BCI). The BCI is a number between 0 and 100, inclusive. You can see the most recent score in the dataset (CURRENT BCI), as well as past scores (the columns with years ranging from 2013 to 2000).
+
+
 
 Fixing Bridges
 
 If a bridge is in poor condition, it can be fixed (i.e., “rehabilitated”). These can be major or minor fixes. The dataset includes the year the last major (LAST MAJOR REHAB) or minor (LAST MINOR REHAB) rehabilitation was performed on the bridge.
+
+
 
 Bridge Spans
 
@@ -34,8 +41,10 @@ There is a semicolon after every span length
 Each span length has a prefix of the form (x)= where x is a number starting from 1 and increasing by 1 for every span.
 
 
+
 Ontario Bridges in Python
-We will represent the dataset as a list of lists in Python (i.e., List[list]). The outer list has the same length as the number of bridges in the dataset. Each inner list (i.e., list) corresponds to one row (i.e., bridge) of the dataset. For example, here is what the first bridge of our dataset will look like in our Python program:
+
+The dataset is in form of a list of lists in Python (i.e., List[list]). The outer list has the same length as the number of bridges in the dataset. Each inner list (i.e., list) corresponds to one row (i.e., bridge) of the dataset. For example, here is what the first bridge of our dataset will look like in our Python program:
 
 >>> MISSING_BCI = -1.0
 >>> first_bridge = [
@@ -76,26 +85,19 @@ How did I know to use index 5? Am I expected to memorize all the indexes? The an
 '1965'
 The following table shows how the dataset file and Python data are related through constants that begin with the prefix COLUMN_. The table also includes the data type that you should expect to find if you were to index a bridge list (like first_bridge) using that constant.
 
-Column Name	Constant to use as Index	Data Type
-ID	COLUMN_ID	int
-STRUCTURE	COLUMN_NAME	str
-HWY NAME	COLUMN_HIGHWAY	str
-LATITUDE	COLUMN_LAT	float
-LONGITUDE	COLUMN_LON	float
-YEAR BUILT	COLUMN_YEAR_BUILT	str
-LAST MAJOR REHAB	COLUMN_LAST_MAJOR_REHAB	str
-LAST MINOR REHAB	COLUMN_LAST_MINOR_REHAB	str
-# OF SPANS	COLUMN_NUM_SPANS	int
-SPAN DETAILS	COLUMN_SPAN_DETAILS	List[float]
-DECK LENGTH	COLUMN_DECK_LENGTH	float
-LAST INSPECTION DATE	COLUMN_LAST_INSPECTED	str
-CURRENT BCI	N/A	N/A
-Remaining Columns	COLUMN_BCI	List[list]
+
+
+
+
+
+
 Note that the COLUMN_ID in our inner list is an integer, which is very different from the ID column in the dataset.
+
+
 
 Storing BCI Scores
 
-Our inner list does not contain the CURRENT BCI column from the dataset (instead, you will implement a function to find the most recent BCI score). Moreover, the remaining columns in the dataset that contain BCI scores are stored in another list (at index COLUMN_BCI) with type List[list]. This list contains exactly two lists:
+The inner list does not contain the CURRENT BCI column from the dataset (instead, you will implement a function to find the most recent BCI score). Moreover, the remaining columns in the dataset that contain BCI scores are stored in another list (at index COLUMN_BCI) with type List[list]. This list contains exactly two lists:
 
 The first list is at INDEX_BCI_YEARS with type List[str] and includes the years in decreasing order.
 The second list is at INDEX_BCI_SCORES with type List[float] and includes the BCI scores. Empty scores in the dataset have a value of MISSING_BCI.
@@ -113,6 +115,8 @@ These two lists are parallel lists and should have the same length. Consider the
 14
 From the example above, we can see that first_bridge has no BCI score in the year 2013 (see index 0 of both lists). But it does have a BCI score of 72.3 in the year 2012 (see index 1 of both lists). Therefore, first_bridge’s most recent BCI score is 72.3.
 
+
+
 Locations and Calculating Distance
 
 The bridges have their locations represented as a latitude and longitude, which we typically refer to as (lat, lon) for short. If you are curious, you can always search for a specific location online (e.g., with Google Maps):
@@ -123,4 +127,4 @@ The bridges have their locations represented as a latitude and longitude, which 
 
 
 
-It is very convenient to be able to calculate the straight-line distance between two locations. But this is actually a little tricky due to the curvature of the earth. We are providing you with the full implementation of a function, calculate_distance, that will accurately return the distance between two (lat, lon) points. You do not need to know how this function works - you only need to know how to use it.
+It is very convenient to be able to calculate the straight-line distance between two locations. But this is actually a little tricky due to the curvature of the earth.
