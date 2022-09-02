@@ -1,10 +1,12 @@
 Ontario Bridges
 
-The Government of Ontario collects [a huge amount of data](https://data.ontario.ca/) on provincial programs and infrastructure, and much of it is provided as open data sets for public use. This project works with a particular dataset that contains information about provincially owned and maintained bridges in Ontario. All bridges in Ontario are reviewed every 2 years, and their information is collected to help determine when bridges need inspection and maintenance. The data you’ll be working with contains information about all bridges in the Ontario highway network, such as the length of the bridges, their condition over various years, and historical information.
+The Government of Ontario collects [a huge amount of data](https://data.ontario.ca/) on provincial programs and infrastructure, and much of it is provided as open data sets for public use. This project works with a particular dataset that contains information about provincially owned and maintained bridges in Ontario. All bridges in Ontario are reviewed every 2 years, and their information is collected to help determine when bridges need inspection and maintenance. The data contains information about all bridges in the Ontario highway network, such as the length of the bridges, their condition over various years, and historical information.
 
-We have included two datasets in your starter files: bridge_data_small.csv and bridge_data_large.csv (do not download the files from the Government of Ontario - use only the datasets in the starter files). These are Comma Separated Value (CSV) files, which contain the data in a table-format similar to a spreadsheet. Each row of the table contains information about a bridge. And each column of the table represents a “feature” of that bridge. For example, the latitude and longitude columns tell us the precise location of the bridge. If you would like to take a peek at the data, we recommend opening the files with a spreadsheet program (e.g., Excel) rather than using Wing 101.
+The datasets in starter files: bridge_data_small.csv and bridge_data_large.csv. These are Comma Separated Value (CSV) files, which contain the data in a table-format similar to a spreadsheet. Each row of the table contains information about a bridge. And each column of the table represents a “feature” of that bridge. For example, the latitude and longitude columns tell us the precise location of the bridge.
 
 Here is a screenshot of the data opened in Microsoft Excel (your computer may have a different spreadsheet program installed):
+
+
 
 
 
@@ -114,6 +116,10 @@ From the example above, we can see that first_bridge has no BCI score in the yea
 Locations and Calculating Distance
 
 The bridges have their locations represented as a latitude and longitude, which we typically refer to as (lat, lon) for short. If you are curious, you can always search for a specific location online (e.g., with Google Maps):
+
+
+
+
 
 
 
